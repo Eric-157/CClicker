@@ -1,0 +1,384 @@
+<html>
+<head> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Lines Of Code</title> 
+<style>
+table, th, td {
+	border: 3px solid black;
+}
+body {background-color: #4d8080;}
+.button {
+border: solid;
+color: black;
+padding: 4px 12px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+margin: 2px 1px;
+cursor: pointer;
+}
+.button1 {background-color: yellow}
+</style>
+</head>
+<body>
+	
+	<!-- Clickable Button to earn Lines of Code -->
+	<button onclick="add()"> <img src="Clickable.png" width="50%"> </button>
+	<br><br>
+	You've typed
+	<input type="text" id="text" disabled style= text-align:center>
+	<script>
+	
+	<!-- Button click -->
+	var codecount = 0;
+	<!-- Autoclickers -->
+	var autoClick = 0;
+	var autocount = 0;
+	var Freshpeople = 0;
+	var Freshcount = 0;
+	var Sophmores = 0;
+	var Sophcount = 0;
+	var Juniors = 0;
+	var Juncount = 0;
+	var Seniors = 0;
+	var Sencount = 0;
+	var Montville = 0;
+	var Montcount = 0;
+	var Steve = 0;
+	var Stevecount = 0;
+	<!-- Button Click Multiplier -->
+	var twotimes = 0;
+	var timesclick = 1;
+	var Expupgrade = 0;
+	var Freshupgrade = 0;
+	var Sophupgrade = 0;
+	var Junupgrade = 0;
+	var Senupgrade = 0;
+	
+	<!-- This updates text values -->
+	function update() {
+	document.getElementById('text').value = codecount;
+	document.title = codecount + " Lines of Code";
+	document.getElementById('amountAutoClick').innerHTML = "You Own " + autoClick + " Exploratory Kids";
+	document.getElementById('costAutoClick').innerHTML = ((autocount+1) * 10) + " Lines of Code";
+	document.getElementById('amountFreshpeople').innerHTML = "You Own " + Freshcount + " Freshpeople";
+	document.getElementById('costFreshpeople').innerHTML = ((Freshcount+1) * 100) + " Lines of Code";
+	document.getElementById('amountSophmores').innerHTML = "You Own " + Sophcount + " Sophmores";
+	document.getElementById('costSophmores').innerHTML = ((Sophcount+1) * 1000) + " Lines of Code";
+	document.getElementById('amountJuniors').innerHTML = "You Own " + Juncount + " Juniors";
+	document.getElementById('costJuniors').innerHTML = ((Juncount+1) * 10000) + " Lines of Code";
+	document.getElementById('amountSeniors').innerHTML = "You Own " + Sencount + " Seniors";
+	document.getElementById('costSeniors').innerHTML = ((Sencount+1) * 100000) + " Lines of Code";
+	document.getElementById('amountMontville').innerHTML = "You've Upgraded Montville " + Montcount + " times";
+	document.getElementById('costMontville').innerHTML = ((Montcount+1) * 1000000) + " Lines of Code";
+	document.getElementById('amountSteve').innerHTML = "You've upgraded Steve " + Stevecount + " times";
+	document.getElementById('costSteve').innerHTML = ((Stevecount+1) * 10000000) + " Lines of Code";
+	document.getElementById('amounttwotimes').innerHTML = "You've upgraded your clicks " + twotimes + " times";
+	document.getElementById('costtwotimes').innerHTML = ((twotimes+1) * 100) + " Lines of Code";
+	document.getElementById('amountExpupgrade').innerHTML = "You've upgraded your Exploratory Kids " + Expupgrade + " times";
+	document.getElementById('costExpupgrade').innerHTML = ((Expupgrade+1) * 100) + " Lines of Code";
+	}
+	document.getElementById('amountFreshupgrade').innerHTML = "You've upgraded your Freshpeople " + Freshupgrade + " times";
+	document.getElementById('costFreshupgrade').innerHTML = ((Freshupgrade+1) * 1000) + " Lines of Code";
+	document.getElementById('amountSophupgrade').innerHTML = "You've upgraded your Sophmores " + Sophupgrade + " times";
+	document.getElementById('costSophupgrade').innerHTML = ((Sophupgrade+1) * 10000) + " Lines of Code";
+	document.getElementById('amountJunupgrade').innerHTML = "You've upgraded your Juniors " + Junupgrade + " times";
+	document.getElementById('costJunupgrade').innerHTML = ((Junupgrade+1) * 100000) + " Lines of Code";
+	document.getElementById('amountSenupgrade').innerHTML = "You've upgraded your Seniors " + Senupgrade + " times";
+	document.getElementById('costSenupgrade').innerHTML = ((Senupgrade+1) * 1000000) + " Lines of Code";
+	
+	<!-- Timer is used for the lines of code per second, used in autoclickers and the func. add is for normal clicking of the button -->
+	function timer() {
+	codecount = codecount + autoClick + Freshpeople + Sophmores + Juniors + Seniors + Montville + Steve;
+	update()
+	}
+	setInterval(timer, 1000)
+	function add(){
+		codecount = codecount + timesclick
+		update()
+	}
+	</script>
+	Lines of Code.
+	<br><br>
+	
+	<!-- buttons to save and load -->
+	<button class="button button1" onClick="save()">Save</button>
+	<button class="button button1" onClick="load()">Load</button>
+	
+	<!-- buttons to buy autoclickers -->
+	<table>
+	<colgroup>
+		<col span="6" style="background-color:#80d4ff">
+	</colgroup>
+	<tbody>
+	<tr>
+	<td>
+	<p> Send the exploratory kids to work </p>
+	<button class="button button1" onClick="buyAutoClick()">Enslave an Exploratory Kid</button>
+	<p id="costAutoClick">10 Lines of Code</p>
+	<p id="amountAutoClick">You Own 0 Exploratory Kids</p>
+	</td>
+	<td>
+	<p> Send the Freshpeople to work </p>
+	<button class="button button1" onClick="buyFreshpeople()">Enslave a Freshperson</button>
+	<p id="costFreshpeople">100 Lines of Code</p>
+	<p id="amountFreshpeople">You Own 0 Freshpeople</p>
+	</td>
+	<td>
+	<p> Send the Sophmores to work </p>
+	<button class="button button1" onClick="buySophmores()">Enslave a Sophmore</button>
+	<p id="costSophmores">1000 Lines of Code</p>
+	<p id="amountSophmores">You Own 0 Sophmores</p>
+	</td>
+	<td>
+	<p> Send the Juniors to work </p>
+	<button class="button button1" onClick="buyJuniors()">Enslave a Junior</button>
+	<p id="costJuniors">10000 Lines of Code</p>
+	<p id="amountJuniors">You Own 0 Juniors</p>
+	</td>
+	<td>
+	<p> Send the Seniors to work </p>
+	<button class="button button1" onClick="buySeniors()">Enslave a Senior</button>
+	<p id="costSeniors">100000 Lines of Code</p>
+	<p id="amountSeniors">You Own 0 Seniors</p>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<p> Upgrade Montville </p>
+	<button class="button button1" onClick="buyMontville()">Upgrade Montville </button>
+	<p id="costMontville">1000000 Lines of Code</p>
+	<p id="amountMontville">You've upgraded montville 0 times</p>
+	</td>
+	<td>
+	<p> Upgrade Steve </p>
+	<button class="button button1" onClick="buySteve()">Upgrade Steve </button>
+	<p id="costSteve">10000000 Lines of Code</p>
+	<p id="amountSteve">You've upgraded steve 0 times</p>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<p> Upgrade your Click power</p>
+	<button class="button button1" onClick="buytwotimes()">Upgrade Click </button>
+	<p id="costtwotimes">100 Lines of Code</p>
+	<p id="amounttwotimes">You've upgraded your clicks 0 times</p>
+	</td>
+	<td>
+	<p> Upgrade your Exploratory Kids </p>
+	<button class="button button1" onClick="buyExpupgrade()">Upgrade Exploratory kids </button>
+	<p id="costExpupgrade">100 Lines of Code</p>
+	<p id="amountExpupgrade">You've upgraded your Exploratory kids 0 times</p>
+	</td>
+	<td>
+	<p> Upgrade your Freshpeople </p>
+	<button class="button button1" onClick="buyFreshupgrade()">Upgrade Freshpeople </button>
+	<p id="costFreshupgrade"> Lines of Code</p>
+	<p id="amountFreshupgrade">You've upgraded your Freshpeople 0 times</p>
+	</td>
+	<td>
+	<p> Upgrade your Sophmores </p>
+	<button class="button button1" onClick="buySophupgrade()">Upgrade Sophmores </button>
+	<p id="costSophupgrade"> Lines of Code</p>
+	<p id="amountSophupgrade">You've upgraded your sophmores 0 times</p>
+	</td>
+	<td>
+	<p> Upgrade your Juniors </p>
+	<button class="button button1" onClick="buyJunupgrade()">Upgrade Juniors </button>
+	<p id="costJunupgrade"> Lines of Code</p>
+	<p id="amountJunupgrade">You've upgraded your Juniors 0 times</p>
+	</td>
+	<td>
+	<p> Upgrade your Seniors </p>
+	<button class="button button1" onClick="buySenupgrade()">Upgrade Seniors </button>
+	<p id="costSenupgrade"> Lines of Code</p>
+	<p id="amountSenupgrade">You've upgraded your Seniors 0 times</p>
+	</td>
+	</tr>
+	</tbody>
+	</table>
+	<!-- Save and Load scripts. Saves to your computers local storage -->
+	<script>
+	function save() {
+		localStorage.setItem("codecount", codecount);
+		localStorage.setItem("autoClick", autoClick);
+		localStorage.setItem("autocount", autocount)
+		localStorage.setItem("Freshpeople", Freshpeople);
+		localStorage.setItem("Freshcount", Freshcount);
+		localStorage.setItem("Sophmores", Sophmores);
+		localStorage.setItem("Sophcount", Sophcount);
+		localStorage.setItem("Juniors", Juniors);
+		localStorage.setItem("Juncount", Juncount);
+		localStorage.setItem("Seniors", Seniors);
+		localStorage.setItem("Sencount", Sencount);
+		localStorage.setItem("Montville", Montville);
+		localStorage.setItem("Montcount", Montcount);
+		localStorage.setItem("Steve", Steve);
+		localStorage.setItem("Stevecount", Stevecount);
+		localStorage.setItem("twotimes", twotimes);
+		localStorage.setItem("timesclick", timesclick);
+		localStorage.setItem("Expupgrade", Expupgrade);
+		localStorage.setItem("Freshupgrade", Freshupgrade);
+		localStorage.setItem("Sophupgrade", Sophupgrade);
+		localStorage.setItem("Junupgrade", Junupgrade);
+		localStorage.setItem("Senupgrade", Senupgrade);
+	}
+	
+	function load() {
+		codecount = localStorage.getItem("codecount");
+		codecount = parseInt(codecount);
+		autoClick = localStorage.getItem("autoClick");
+		autoClick = parseInt(autoClick);
+		autocount = localStorage.getItem("autocount");
+		autocount = parseInt(autocount);
+		Freshpeople = localStorage.getItem("Freshpeople");
+		Freshpeople = parseInt(Freshpeople);
+		Freshcount = localStorage.getItem("Freshcount");
+		Freshcount = parseInt(Freshcount);
+		Sophmores = localStorage.getItem("Sophmores");
+		Sophmores = parseInt(Sophmores);
+		Sophcount = localStorage.getItem("Sophcount");
+		Sophcount = parseInt(Sophcount);
+		Juniors = localStorage.getItem("Juniors");
+		Juniors = parseInt(Juniors);
+		Juncount = localStorage.getItem("Juncount");
+		Juncount = parseInt(Juncount);
+		Seniors = localStorage.getItem("Seniors");
+		Seniors = parseInt(Seniors);
+		Sencount = localStorage.getItem("Sencount");
+		Sencount = parseInt(Sencount);
+		Montville = localStorage.getItem("Montville");
+		Montville = parseInt(Montville);
+		Montcount = localStorage.getItem("Montcount");
+		Montcount = parseInt(Montcount);
+		Steve = localStorage.getItem("Steve");
+		Steve = parseInt(Steve);
+		Stevecount = localStorage.getItem("Stevecount");
+		Stevecount = parseInt(Stevecount);
+		twotimes = localStorage.getItem("twotimes");
+		twotimes = parseInt(twotimes);
+		timesclick = localStorage.getItem("timesclick");
+		timesclick = parseInt(timesclick);
+		Expupgrade = localStorage.getItem("Expupgrade");
+		Expupgrade = parseInt(Expupgrade);
+		Freshupgrade = localStorage.getItem("Freshupgrade");
+		Freshupgrade = parseInt(Freshupgrade);
+		Sophupgrade = localStorage.getItem("Sophupgrade");
+		Sophupgrade = parseInt(Sophupgrade);
+		Junupgrade = localStorage.getItem("Junupgrade");
+		Junupgrade = parseInt(Junupgrade);
+		Senupgrade = localStorage.getItem("Senupgrade");
+		Senupgrade = parseInt(Senupgrade);
+		update()
+	}
+	
+	<!-- buy functions for autoclickers -->
+	function buyAutoClick() {
+		if (codecount >= ((autocount+1) * 10)) {
+			codecount = codecount - ((autocount+1) * 10);
+			autoClick = autoClick + 1;
+			autocount = autocount + 1;
+			update()
+		}
+	}
+	function buyFreshpeople() {
+		if (codecount >= ((Freshcount+1) * 100)) {
+			codecount = codecount - ((Freshcount+1) * 100);
+			Freshpeople = Freshpeople + 10;
+			Freshcount = Freshcount + 1;
+			update()
+		}
+	}
+	function buySophmores() {
+	if (codecount >= ((Sophcount+1) * 1000)) {
+		codecount = codecount - ((Sophcount+1) * 1000);
+		Sophmores = Sophmores + 100;
+		Sophcount = Sophcount + 1;
+		update()
+		}
+	}
+	function buyJuniors() {
+	if (codecount >= ((Juncount+1) * 10000)) {
+		codecount = codecount - ((Juncount+1) * 10000);
+		Juniors = Juniors + 1000;
+		Juncount = Juncount + 1;
+		update()
+		}
+	}
+	function buySeniors() {
+	if (codecount >= ((Sencount+1) * 100000)) {
+		codecount = codecount - ((Sencount+1) * 100000);
+		Seniors = Seniors + 10000;
+		Sencount = Sencount + 1;
+		update()
+		}
+	}
+	function buyMontville() {
+	if (codecount >= ((Montcount+1) * 1000000)) {
+		codecount = codecount - ((Montcount+1) * 1000000);
+		Montville = Montville + 100000;
+		Montcount = Montcount + 1;
+		update()
+		}
+	}
+	function buySteve() {
+	if (codecount >= ((Stevecount+1) * 10000000)) {
+		codecount = codecount - ((Stevecount+1) * 10000000);
+		Steve = Steve + 1000000;
+		Stevecount = Stevecount + 1;
+		update()
+		}
+	}
+	function buytwotimes() {
+	if (codecount >= ((twotimes+1)*100)) {
+		codecount = codecount - ((twotimes+1) * 100);
+		twotimes = twotimes + 1;
+		timesclick = timesclick * 2;
+		update()
+	}
+	}
+	function buyExpupgrade() {
+	if (codecount >= ((Expupgrade+1)*100)) {
+		codecount = codecount - ((Expupgrade+1) * 100);
+		Expupgrade = Expupgrade + 1;
+		autocount = autocount * 2;
+		update()
+	}
+	}
+	function buyFreshupgrade() {
+	if (codecount >= ((Freshupgrade+1)*1000)) {
+		codecount = codecount - ((Freshupgrade+1) * 1000);
+		Freshupgrade = Freshupgrade + 1;
+		Freshpeople = Freshpeople * 2;
+		update()
+	}
+	}
+	function buySophupgrade() {
+	if (codecount >= ((Sophupgrade+1)*10000)) {
+		codecount = codecount - ((Sophupgrade+1) * 10000);
+		Sophupgrade = Sophupgrade + 1;
+		Sophmores = Sophmores * 2;
+		update()
+	}
+	}
+	function buyJunupgrade() {
+	if (codecount >= ((Junupgrade+1)*100000)) {
+		codecount = codecount - ((Junupgrade+1) * 100000);
+		Junupgrade = Junupgrade + 1;
+		Juniors = Juniors * 2;
+		update()
+	}
+	}
+	function buySenupgrade() {
+	if (codecount >= ((enupgrade+1)*1000000)) {
+		codecount = codecount - ((enupgrade+1) * 1000000);
+		enupgrade = enupgrade + 1;
+		Seniors = Seniors * 2;
+		update()
+	}
+	}
+	
+	</script>
+</body>
+</html>
